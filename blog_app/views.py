@@ -7,7 +7,7 @@ from blog_app.forms import PostForm
 from blog_app.models import Post
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.urls import reverse_lazy
 
@@ -26,7 +26,7 @@ from django.urls import reverse_lazy
 # from django.views.generic import ListView, DetailView,CreateView,UpdateView
 
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "post_create.html"
     form_class = PostForm
@@ -62,7 +62,6 @@ class PostDetailView(DetailView):
         return queryset
 
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class DraftListView(LoginRequiredMixin, ListView):
