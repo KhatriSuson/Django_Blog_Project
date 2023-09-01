@@ -62,8 +62,6 @@ class PostDetailView(DetailView):
         return queryset
 
 
-
-
 class DraftListView(LoginRequiredMixin, ListView):
     model = Post
     template_name = "post_list.html"
