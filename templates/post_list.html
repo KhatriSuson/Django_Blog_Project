@@ -10,7 +10,7 @@
                     </h1>
                     <div class="date author">@{{ post.author.username }}</div>
                     <p>
-                        {{ post.content|truncatechars:300 }} <a href=" {% if post.published_at %} {% url 'post-detail' post.pk %} {% else %} {% url 'draft-detail' post.pk %} {% endif %}">View more</a>
+                        {{ post.content|striptags|truncatechars:300 }} <a href=" {% if post.published_at %} {% url 'post-detail' post.pk %} {% else %} {% url 'draft-detail' post.pk %} {% endif %}">View more</a>
                     </p>
                 </div>
             {% endfor %}

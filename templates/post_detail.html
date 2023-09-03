@@ -16,6 +16,6 @@
         <a href="{% url 'post-delete' post.pk %}" class="btn btn-danger">Delete</a>
       </div>
     {% endif %}
-    <p align="justify">{{ post.content|linebreaksbr }}</p>
+    <p align="justify">{{ post.content|striptags }}</p>
   </div>
 {% endblock content %}
